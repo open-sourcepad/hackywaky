@@ -8,6 +8,7 @@ class SlackResponseSaver
   end
 
   def save
+    puts @params
     slack_response = SlackResponse.new(@params)
     slack_response.timestamp = timestamp
     slack_response.save

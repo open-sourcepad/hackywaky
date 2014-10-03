@@ -9,7 +9,7 @@ class SlackResponseController < ApplicationController
   private
 
   def permitted_params
-    params.permit(:team_id, :team_domain, :service_id, :channel_id, :channel_name, :timestamp, :user_id, :user_name, :text)
+    params.require(:team_id, :team_domain, :service_id, :channel_id, :channel_name, :timestamp, :user_id, :user_name, :text).permit!
   end
 
 end
