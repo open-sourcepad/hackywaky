@@ -3,22 +3,7 @@ class SlackResponseSaver
     @params = params
   end
 
-  def timestamp
-    Time.at(@params.delete(:timestamp).to_f).utc
-  end
-
   def save
-    # slack_response = SlackResponse.new(
-    #   :team_id => @params[:team_id],
-    #   :team_domain => @params[:team_domain],
-    #   :service_id => @params[:service_id],
-    #   :channel_id => @params[:channel_id],
-    #   :channel_name => @params[:channel_name],
-    #   # :timestamp => @params[:timestamp],
-    #   :user_id => @params[:user_id],
-    #   :user_name => @params[:user_name],
-    #   :text => @params[:text]
-    # )
     slack_response = SlackResponse.new
     slack_response.team_id = @params[:team_id]
     slack_response.team_domain = @params[:team_domain]
@@ -30,6 +15,17 @@ class SlackResponseSaver
     slack_response.user_name = @params[:user_name]
     slack_response.text = @params[:text]
     slack_response.timestamp = timestamp
+    slack_response.hash_tags = hash_tags
     slack_response.save
+  end
+
+  private
+
+  def timestamp
+    Time.at(@params.delete(:timestamp).to_f).utc
+  end
+
+  def hash_tags
+    HashTagExtractor.extract(@params[:text])
   end
 end
