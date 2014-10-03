@@ -14,10 +14,10 @@ class SlackResponseSaver
     #   :service_id => @params[:service_id],
     #   :channel_id => @params[:channel_id],
     #   :channel_name => @params[:channel_name],
-    #   :timestamp => @params[:timestamp],
+    #   # :timestamp => @params[:timestamp],
     #   :user_id => @params[:user_id],
     #   :user_name => @params[:user_name],
-    #   :text => @params[:text],
+    #   :text => @params[:text]
     # )
     slack_response = SlackResponse.new
     slack_response.team_id = @params[:team_id]
