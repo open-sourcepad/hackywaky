@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20141003100925) do
     t.string   "user_id"
     t.string   "user_name"
     t.text     "text"
+    t.text     "hash_tags",              default: [], array: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
