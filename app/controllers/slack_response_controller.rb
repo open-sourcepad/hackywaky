@@ -1,9 +1,15 @@
 class SlackResponseController < ApplicationController
   skip_before_action :verify_authenticity_token
-  
+
   def create
-    SlackResponseSaver.new(params).save
+    SlackResponseSaver.new(permitted_params).save
     render nothing: true
+  end
+
+  private
+
+  def permitted_params
+    params.permit(:team_id, :team_domain, :service_id, :channel_id, :channel_name, :timestamp, :user_id, :user_name, :text)
   end
 
 end
