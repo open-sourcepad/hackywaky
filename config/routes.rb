@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  resources :slack_response, only: :create
+  mount Api => '/'
 end
