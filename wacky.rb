@@ -9,5 +9,5 @@ get '/test' do
 end
 
 post '/chuva' do
-  Oj.dump(params)
+  ''
 end
