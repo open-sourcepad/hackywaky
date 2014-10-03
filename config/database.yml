@@ -1,0 +1,10 @@
+development:
+  adapter: postgresql
+  database: hacky_dev
+  pool: 5
+  username: 
+test:
+  adapter: postgresql
+  database: hacky_test
+  pool: 5
+  username: 
