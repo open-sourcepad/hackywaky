@@ -16,4 +16,4 @@
 /tmp
 .ruby-*
 .vagrant
-confing/database.yml
+config/database.yml
